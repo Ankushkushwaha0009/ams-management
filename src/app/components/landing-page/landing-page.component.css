@@ -1,0 +1,108 @@
+/* Container for the entire landing page */
+.landing-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url('https://wallpaperaccess.com/full/254472.jpg'); /* Path to your background image */
+    background-size: cover; /* Ensures the image covers the entire container */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents repeating the image */
+    color: white; /* White text for contrast against the background */
+    text-align: center;
+    padding: 20px;
+}
+
+.landing-page-title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    font-family: 'Arial', sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Adds shadow to the text for better readability */
+}
+
+/* Button container styling */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Enhanced button styles */
+.landing-page-btn {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 50px; /* Rounded buttons for a modern look */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smooth transition for all changes */
+    background: linear-gradient(135deg, #ff5733, #ff8c00); /* New gradient background (orange-red) */
+    color: white;
+    font-weight: bold;
+    width: 250px;
+    box-shadow: 0 5px 15px rgba(255, 87, 51, 0.3); /* Soft shadow for 3D effect */
+    outline: none;
+}
+
+.landing-page-btn:hover {
+    background: linear-gradient(135deg, #e04a00, #e07b00); /* Darker gradient on hover */
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 8px 20px rgba(255, 87, 51, 0.5); /* Increase shadow size on hover */
+}
+
+.landing-page-btn:active {
+    transform: translateY(2px); /* Slightly pushes the button down when clicked */
+    box-shadow: 0 3px 10px rgba(255, 87, 51, 0.3); /* Smaller shadow on click */
+}
+
+/* Admin Login button styling */
+.admin-login-btn {
+    background: linear-gradient(135deg, #d6943f, #56d687); /* Green gradient for admin button */
+}
+
+.admin-login-btn:hover {
+    background: linear-gradient(135deg, #e3120f, #45c28b); /* Darker green on hover */
+}
+
+.admin-login-btn:active {
+    transform: translateY(2px); /* Slightly pushes the button down when clicked */
+    box-shadow: 0 3px 10px rgba(185, 79, 23, 0.3); /* Smaller shadow on click */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    /* Adjust the title size for medium screens */
+    .landing-page-title {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    /* Stack the buttons vertically and make them wider on medium screens */
+    .landing-page-btn {
+        width: 80%; /* Increase button width for better mobile visibility */
+        font-size: 1.1rem;
+    }
+
+    /* Adjust the button container spacing */
+    .button-container {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Further adjust button size for smaller screens */
+    .landing-page-title {
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+    }
+
+    .landing-page-btn {
+        width: 90%; /* Full width buttons on small screens */
+        font-size: 1rem;
+    }
+
+    /* Adjust the gap between buttons on very small screens */
+    .button-container {
+        gap: 12px;
+    }
+}

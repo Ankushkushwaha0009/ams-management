@@ -1,0 +1,172 @@
+<div class="flight-container">
+    <!-- Flight Form Section -->
+    <div class="flight-form">
+      <h2>{{ isEditMode ? 'Edit Flight' : 'Add Flight' }}</h2>
+      <form (ngSubmit)="submitFlight()" #flightForm="ngForm">
+        <!-- Carrier ID -->
+        <div class="form-field">
+          <label for="carrierId">Carrier ID:</label>
+          <input
+            type="number"
+            id="carrierId"
+            name="carrierId"
+            [(ngModel)]="carrierId"
+            required
+            placeholder="Enter Carrier ID"
+          />
+        </div>
+  
+        <!-- Carrier Name -->
+        <div class="form-field">
+          <label for="carrierName">Carrier Name:</label>
+          <input
+            type="text"
+            id="carrierName"
+            name="carrierName"
+            [(ngModel)]="carrierName"
+            required
+            placeholder="Enter Carrier Name"
+          />
+        </div>
+  
+        <!-- Origin -->
+        <div class="form-field">
+          <label for="origin">Origin:</label>
+          <input
+            type="text"
+            id="origin"
+            name="origin"
+            [(ngModel)]="origin"
+            required
+            placeholder="Enter Origin"
+          />
+        </div>
+  
+        <!-- Destination -->
+        <div class="form-field">
+          <label for="destination">Destination:</label>
+          <input
+            type="text"
+            id="destination"
+            name="destination"
+            [(ngModel)]="destination"
+            required
+            placeholder="Enter Destination"
+          />
+        </div>
+  
+        <!-- Air Fare -->
+        <div class="form-field">
+          <label for="airFare">Air Fare:</label>
+          <input
+            type="number"
+            id="airFare"
+            name="airFare"
+            [(ngModel)]="airFare"
+            required
+            placeholder="Enter Air Fare"
+          />
+        </div>
+  
+        <!-- Business Class Capacity -->
+        <div class="form-field">
+          <label for="seatCapacityBusinessClass">Business Class Capacity:</label>
+          <input
+            type="number"
+            id="seatCapacityBusinessClass"
+            name="seatCapacityBusinessClass"
+            [(ngModel)]="seatCapacityBusinessClass"
+            required
+            placeholder="Enter Business Class Capacity"
+          />
+        </div>
+  
+        <!-- Economy Class Capacity -->
+        <div class="form-field">
+          <label for="seatCapacityEconomyClass">Economy Class Capacity:</label>
+          <input
+            type="number"
+            id="seatCapacityEconomyClass"
+            name="seatCapacityEconomyClass"
+            [(ngModel)]="seatCapacityEconomyClass"
+            required
+            placeholder="Enter Economy Class Capacity"
+          />
+        </div>
+  
+        <!-- Executive Class Capacity -->
+        <div class="form-field">
+          <label for="seatCapacityExecutiveClass">Executive Class Capacity:</label>
+          <input
+            type="number"
+            id="seatCapacityExecutiveClass"
+            name="seatCapacityExecutiveClass"
+            [(ngModel)]="seatCapacityExecutiveClass"
+            required
+            placeholder="Enter Executive Class Capacity"
+          />
+        </div>
+  
+        <!-- Date of Journey -->
+        <div class="form-field">
+          <label for="dateOfJourney">Date of Journey:</label>
+          <input
+            type="date"
+            id="dateOfJourney"
+            name="dateOfJourney"
+            [(ngModel)]="dateOfJourney"
+            required
+          />
+        </div>
+  
+        <!-- Submit Button -->
+        <button type="submit" class="submit-btn">{{ isEditMode ? 'Update Flight' : 'Add Flight' }}</button>
+      </form>
+  
+      <!-- Success/Error Message -->
+      <div *ngIf="addFlightMessage" class="message" [ngClass]="{ 'success': isFlightAdded, 'error': !isFlightAdded }">
+        {{ addFlightMessage }}
+      </div>
+    </div>
+  
+    <!-- Flight List Section -->
+    <div class="flight-list-container">
+      <h2>Manage Flights</h2>
+      <table class="flight-list">
+        <thead>
+          <tr>
+            <th>Flight ID</th>
+            <th>Carrier ID</th>
+            <th>Carrier Name</th>
+            <th>Origin</th>
+            <th>Destination</th>
+            <th>Air Fare</th>
+            <th>Seats</th>
+            <th>Date of Journey</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let flight of flights">
+            <td>{{ flight.flightID }}</td>
+            <td>{{ flight.carrierID }}</td>
+            <td>{{ flight.carrierName }}</td>
+            <td>{{ flight.origin }}</td>
+            <td>{{ flight.destination }}</td>
+            <td>{{ flight.airFare }}</td>
+            <td>
+              {{ flight.seatCapacityBusinessClass }} Business | 
+              {{ flight.seatCapacityEconomyClass }} Economy | 
+              {{ flight.seatCapacityExecutiveClass }} Executive
+            </td>
+            <td>{{ flight.dateOfJourney | date: 'dd/MM/yyyy' }}</td>
+            <td>
+              <button class="btn btn-edit" (click)="editFlight(flight.flightID)">Edit</button>
+              <button class="btn btn-delete" (click)="deleteFlight(flight.flightID)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

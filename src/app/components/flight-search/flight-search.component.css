@@ -1,0 +1,105 @@
+/* Overall container for the search section */
+.flight-search-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Header styling */
+  .flight-search-container h2 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Form styling */
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Input field styling */
+  form label {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #555;
+  }
+  
+  form input,
+  form select {
+    width: 100%;
+    max-width: 300px;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  /* Button styling */
+  form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  form button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Display available flights */
+  div h3 {
+    text-align: center;
+    font-size: 20px;
+    margin-top: 30px;
+    color: #333;
+  }
+  
+  /* Table styling for available flights */
+  table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+  }
+  
+  table th, table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+  
+  table th {
+    background-color: #007bff;
+    color: white;
+    font-size: 18px;
+  }
+  
+  table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Styling when no flights are available */
+  div p.no-flights {
+    text-align: center;
+    font-size: 18px;
+    color: #ff0000;
+    margin-top: 20px;
+  }
+  
+
+  td {
+    color: black;
+  }

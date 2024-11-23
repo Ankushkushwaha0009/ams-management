@@ -1,0 +1,106 @@
+<div class="container mt-4">
+    <h2 class="text-center">Book Flight</h2>
+  
+    <!-- Show a loading message while the flight details are being fetched -->
+    <div *ngIf="!flight">
+      <p>Loading flight details...</p>
+    </div>
+  
+    <!-- Flight Details -->
+    <div class="card mb-4" *ngIf="flight">
+      <div class="card-body">
+        <h5 class="card-title">Flight Details</h5>
+        <p><strong>Carrier Name:</strong> {{ flight.carrierName }}</p>
+        <p><strong>Flight ID:</strong> {{ flight.flightID }}</p>
+        <p><strong>Origin:</strong> {{ flight.origin }}</p>
+        <p><strong>Destination:</strong> {{ flight.destination }}</p>
+        <p><strong>Date of Journey:</strong> {{ flight.dateOfJourney | date }}</p> <!-- Format the date -->
+        <p><strong>Air Fare:</strong> {{ flight.airFare | currency }}</p> <!-- Format air fare as currency -->
+      </div>
+    </div>
+  
+    <!-- Booking Form -->
+    <form *ngIf="flight" (ngSubmit)="bookFlight()">
+      <div class="mb-3">
+        <label for="customerName" class="form-label">Customer Name</label>
+        <input
+          type="text"
+          id="customerName"
+          [(ngModel)]="customerName"
+          name="customerName"
+          class="form-control"
+          required
+        />
+      </div>
+  
+      <div class="mb-3">
+        <label for="seatNumber" class="form-label">Seat Number</label>
+        <input
+          type="text"
+          id="seatNumber"
+          [(ngModel)]="seatNumber"
+          name="seatNumber"
+          class="form-control"
+          required
+        />
+      </div>
+  
+      <div class="mb-3">
+        <label for="selectedClass" class="form-label">Class</label>
+        <select
+          id="selectedClass"
+          [(ngModel)]="selectedClass"
+          name="selectedClass"
+          class="form-control"
+          required
+        >
+          <option value="Economy">Economy</option>
+          <option value="Business">Business</option>
+          <option value="Executive">Executive</option>
+        </select>
+      </div>
+  
+      <div class="mb-3">
+        <label for="noOfTravellers" class="form-label">Number of Travelers</label>
+        <input
+          type="number"
+          id="noOfTravellers"
+          [(ngModel)]="noOfTravellers"
+          name="noOfTravellers"
+          class="form-control"
+          min="1"
+          required
+        />
+      </div>
+  
+      <div class="mb-3">
+        <label for="dateOfTravel" class="form-label">Date of Travel</label>
+        <input
+          type="date"
+          id="dateOfTravel"
+          [(ngModel)]="dateOfTravel"
+          name="dateOfTravel"
+          class="form-control"
+          required
+        />
+      </div>
+  
+      <div class="mb-3">
+        <label for="bookingAmount" class="form-label">Booking Amount</label>
+        <input
+          type="number"
+          id="bookingAmount"
+          [(ngModel)]="bookingAmount"
+          name="bookingAmount"
+          class="form-control"
+          min="0"
+          [value]="bookingAmount"
+          required
+          readonly
+        />
+      </div>
+  
+      <button type="submit" class="btn btn-success w-100">Confirm Booking</button>
+    </form>
+  </div>
+  

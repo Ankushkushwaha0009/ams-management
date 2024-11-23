@@ -1,0 +1,180 @@
+
+
+<div class="dashboard-container">
+  <!-- Add Carrier Form -->
+  <a (click)="logout()" class="logout">Logout</a> <!-- Logout link -->
+  <div class="form-container">
+    <form (ngSubmit)="submitCarrier()" class="carrier-form" #carrierForm="ngForm">
+      <div class="form-field">
+        <label for="carrierName">Carrier Name:</label>
+        <input
+          type="text"
+          id="carrierName"
+          name="carrierName"
+          [(ngModel)]="carrierName"
+          required
+        />
+      </div>
+
+      <div class="form-field">
+        <label for="discountThirtyDays">30 Days Advance Discount:</label>
+        <input
+          type="number"
+          id="discountThirtyDays"
+          name="discountThirtyDays"
+          [(ngModel)]="discountThirtyDays"
+          required
+        />
+      </div>
+
+      <div class="form-field">
+        <label for="discountSixtyDays">60 Days Advance Discount:</label>
+        <input
+          type="number"
+          id="discountSixtyDays"
+          name="discountSixtyDays"
+          [(ngModel)]="discountSixtyDays"
+          required
+        />
+      </div>
+
+      <div class="form-field">
+        <label for="discountNinetyDays">90 Days Advance Discount:</label>
+        <input
+          type="number"
+          id="discountNinetyDays"
+          name="discountNinetyDays"
+          [(ngModel)]="discountNinetyDays"
+          required
+        />
+      </div>
+
+      <div class="form-field">
+        <label for="bulkBookingDiscount">Bulk Booking Discount:</label>
+        <input
+          type="number"
+          id="bulkBookingDiscount"
+          name="bulkBookingDiscount"
+          [(ngModel)]="bulkBookingDiscount"
+          required
+        />
+      </div>
+
+      <div class="form-field">
+        <label for="refund2Days">Refund (2 Days Before):</label>
+        <input
+          type="number"
+          id="refund2Days"
+          name="refund2Days"
+          [(ngModel)]="refund2Days"
+          required
+        />
+      </div>
+
+      <div class="form-field">
+        <label for="refund10Days">Refund (10 Days Before):</label>
+        <input
+          type="number"
+          id="refund10Days"
+          name="refund10Days"
+          [(ngModel)]="refund10Days"
+          required
+        />
+      </div>
+
+      <div class="form-field">
+        <label for="refund20Days">Refund (20+ Days Before):</label>
+        <input
+          type="number"
+          id="refund20Days"
+          name="refund20Days"
+          [(ngModel)]="refund20Days"
+          required
+        />
+      </div>
+
+      <div class="form-field">
+        <label for="silverDiscount">Silver User Discount:</label>
+        <input
+          type="number"
+          id="silverDiscount"
+          name="silverDiscount"
+          [(ngModel)]="silverDiscount"
+          required
+        />
+      </div>
+
+      <div class="form-field">
+        <label for="goldDiscount">Gold User Discount:</label>
+        <input
+          type="number"
+          id="goldDiscount"
+          name="goldDiscount"
+          [(ngModel)]="goldDiscount"
+          required
+        />
+      </div>
+
+      <div class="form-field">
+        <label for="platinumDiscount">Platinum User Discount:</label>
+        <input
+          type="number"
+          id="platinumDiscount"
+          name="platinumDiscount"
+          [(ngModel)]="platinumDiscount"
+          required
+        />
+      </div>
+
+      <button type="submit" class="submit-btn">Add Carrier</button>
+    </form>
+
+    <!-- Success/Error Message for Add Carrier -->
+    <div *ngIf="addCarrierMessage" class="message" [ngClass]="{ 'success': isSuccess, 'error': !isSuccess }">
+      {{ addCarrierMessage }}
+    </div>
+  </div>
+
+  <!-- Update and Delete Carrier -->
+  <div class="update-delete-container">
+    <form (ngSubmit)="submitUpdateDelete()" class="update-delete-form">
+      <div class="form-field">
+        <label for="carrierId">Carrier ID:</label>
+        <input
+          type="number"
+          id="carrierId"
+          name="carrierId"
+          [(ngModel)]="carrierId"
+          required
+        />
+      </div>
+
+      <div class="buttons-container">
+        <button type="submit" class="submit-btn update-btn">
+          Update Carrier
+        </button>
+        <button
+          type="button"
+          class="submit-btn delete-btn"
+          (click)="deleteCarrier()"
+        >
+          Delete Carrier
+        </button>
+      </div>
+    </form>
+
+    <!-- Success/Error Message for Delete Carrier -->
+    <div *ngIf="deleteCarrierMessage" class="delete-message" [ngClass]="{'success-message': isDeleteSuccess, 'error-message': !isDeleteSuccess}">
+      {{ deleteCarrierMessage }}
+    </div>
+    
+  </div>
+
+  <div class="add-flight-btn-container">
+    <button (click)="goToAddFlightPage()" class="submit-btn add-flight-btn">
+      Add Flight
+    </button>
+  </div>
+
+
+</div>

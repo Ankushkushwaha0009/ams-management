@@ -1,0 +1,247 @@
+.dashboard-container {
+  max-width: 50%; /* Restrict the container width */
+  margin: 20px auto; /* Add top and bottom margin */
+  padding: 20px;
+  background-color: #5a5858; /* Lighter background for readability */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Avoid unnecessary scrollbars */
+}
+
+h1 {
+  text-align: center;
+  color: #9a9797;
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.form-container {
+  background-color: #a49e9e; /* Softer contrast */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px; /* Add spacing between sections */
+}
+
+h2 {
+  text-align: center;
+  color: #d4cfcf;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.carrier-form,
+.update-delete-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 1rem;
+  margin-bottom: 5px;
+  color: #f0e9e9;
+  
+}
+
+input[type="text"],
+input[type="number"] {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #6c6969;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button.submit-btn {
+  padding: 12px 20px;
+  font-size: 1rem;
+  color: white;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button.submit-btn:hover {
+  background-color: #45a049;
+}
+
+button.update-btn {
+  background-color: #ffa500;
+}
+
+button.update-btn:hover {
+  background-color: #ff8c00;
+}
+
+button.delete-btn {
+  background-color: #e74c3c;
+}
+
+button.delete-btn:hover {
+  background-color: #c0392b;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.submit-btn:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+.update-delete-container {
+  margin-top: 30px;
+  background-color: #504e4e;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  /* Adjust layout for smaller screens */
+  .dashboard-container {
+    max-width: 95%;
+    padding: 15px;
+  }
+
+  h1,
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  button.submit-btn {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+} 
+
+/* Navbar styles using flexbox */
+/* Flexbox Navbar */
+.navbar {
+  display: flex; /* Enable flexbox */
+  justify-content: space-between; /* Space between logo and menu */
+  align-items: center; /* Center items vertically */
+  background-color: #333; /* Dark background color */
+  padding: 10px 20px; /* Add padding around navbar */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-logo {
+  color: white; /* Logo text color */
+  font-size: 1.5rem; /* Larger font size */
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.navbar-menu {
+  display: flex; /* Enable flexbox for menu */
+  list-style: none; /* Remove default list styling */
+  margin: 0;
+  padding: 0;
+  gap: 20px; /* Space between menu items */
+}
+
+.navbar-menu li {
+  display: inline-block;
+}
+
+.navbar-menu a {
+  color: white; /* Menu text color */
+  text-decoration: none;
+  font-size: 1.1rem; /* Font size for menu items */
+  padding: 8px 12px; /* Add padding for better clickable area */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-menu a:hover {
+  background-color: #4caf50; /* Green hover effect */
+  border-radius: 4px; /* Rounded corners on hover */
+  color: white; /* Ensure text stays white */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center-align all items */
+  }
+
+  .navbar-menu {
+    flex-direction: column; /* Make the menu vertical */
+    gap: 10px; /* Reduce spacing between menu items */
+  }
+}
+
+.success-message {
+  color: green;
+  font-weight: bold;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+}
+
+.delete-message {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+
+.add-flight-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.add-flight-btn {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #4CAF50;  /* Green background color */
+  color: white;  /* White text color */
+  border: none;
+  border-radius: 5px;  /* Rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s ease;  /* Smooth color transition */
+}
+
+.add-flight-btn:hover {
+  background-color: #45a049;  /* Slightly darker green when hovered */
+}
+
+.add-flight-btn:focus {
+  outline: none;  /* Remove the default focus outline */
+}
+
+.add-flight-btn:active {
+  background-color: #3e8e41;  /* Even darker green when clicked */
+}
+
+.logout {
+  background-color: rgb(105, 101, 101) ;
+  padding: 10px ;
+  color: white ;
+  border-radius: 9px ;
+  cursor: pointer ;
+  -webkit-border-radius: 9px ;
+  -moz-border-radius: 9px ;
+  -ms-border-radius: 9px ;
+  -o-border-radius: 9px ;
+}
+
+.logout:hover  {
+  background-color: rgb(18, 17, 17) ;
+}

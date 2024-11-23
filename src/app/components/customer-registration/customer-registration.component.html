@@ -1,0 +1,135 @@
+<div class="registration-container">
+  <h2 class="form-title">Customer Registration</h2>
+
+  <!-- Form submission -->
+  <form (ngSubmit)="onSubmit()" [formGroup]="registrationForm" class="registration-form">
+
+    <!-- User Name Field -->
+    <div class="form-group">
+      <label for="userName">User Name</label>
+      <input type="text" id="userName" formControlName="userName" class="form-control" />
+      <div *ngIf="isSubmitted || registrationForm.get('userName')?.touched" class="error-message">
+        <div *ngIf="registrationForm.get('userName')?.errors?.['required']">
+          User Name is required.
+        </div>
+      </div>
+    </div>
+
+    <!-- Password Field -->
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" formControlName="password" class="form-control" />
+      <div *ngIf="isSubmitted || registrationForm.get('password')?.touched" class="error-message">
+        <div *ngIf="registrationForm.get('password')?.errors?.['required']">
+          Password is required.
+        </div>
+        <div *ngIf="registrationForm.get('password')?.errors?.['minlength']">
+          Password must be at least 6 characters long.
+        </div>
+      </div>
+    </div>
+
+    <!-- Role Field -->
+    <div class="form-group">
+      <label for="role">Role</label>
+      <select id="role" formControlName="role" class="form-control">
+        <option value="Admin">Admin</option>
+        <option value="Customer">Customer</option>
+      </select>
+      <div *ngIf="isSubmitted || registrationForm.get('role')?.touched" class="error-message">
+        <div *ngIf="registrationForm.get('role')?.errors?.['required']">
+          Role is required.
+        </div>
+      </div>
+    </div>
+
+    <!-- Customer Category Field -->
+    <div class="form-group">
+      <label for="customerCategory">Customer Category</label>
+      <input type="text" id="customerCategory" formControlName="customerCategory" class="form-control" />
+      <div *ngIf="isSubmitted || registrationForm.get('customerCategory')?.touched" class="error-message">
+        <div *ngIf="registrationForm.get('customerCategory')?.errors?.['required']">
+          Customer Category is required.
+        </div>
+      </div>
+    </div>
+
+    <!-- Phone Field -->
+    <div class="form-group">
+      <label for="phone">Phone</label>
+      <input type="text" id="phone" formControlName="phone" class="form-control" />
+      <div *ngIf="isSubmitted || registrationForm.get('phone')?.touched" class="error-message">
+        <div *ngIf="registrationForm.get('phone')?.errors?.['required']">
+          Phone is required.
+        </div>
+        <div *ngIf="registrationForm.get('phone')?.errors?.['pattern']">
+          Invalid phone number. Please enter a valid 10-digit phone number.
+        </div>
+      </div>
+    </div>
+
+    <!-- Email ID Field -->
+    <div class="form-group">
+      <label for="emailId">Email ID</label>
+      <input type="email" id="emailId" formControlName="emailId" class="form-control" />
+      <div *ngIf="isSubmitted || registrationForm.get('emailId')?.touched" class="error-message">
+        <div *ngIf="registrationForm.get('emailId')?.errors?.['required']">
+          Email ID is required.
+        </div>
+        <div *ngIf="registrationForm.get('emailId')?.errors?.['email']">
+          Invalid email format.
+        </div>
+      </div>
+    </div>
+
+    <!-- Address Line 1 Field -->
+    <div class="form-group">
+      <label for="address1">Address Line 1</label>
+      <input type="text" id="address1" formControlName="address1" class="form-control" />
+    </div>
+
+    <!-- Address Line 2 Field -->
+    <div class="form-group">
+      <label for="address2">Address Line 2</label>
+      <input type="text" id="address2" formControlName="address2" class="form-control" />
+    </div>
+
+    <!-- City Field -->
+    <div class="form-group">
+      <label for="city">City</label>
+      <input type="text" id="city" formControlName="city" class="form-control" />
+    </div>
+
+    <!-- State Field -->
+    <div class="form-group">
+      <label for="state">State</label>
+      <input type="text" id="state" formControlName="state" class="form-control" />
+    </div>
+
+    <!-- Country Field -->
+    <div class="form-group">
+      <label for="country">Country</label>
+      <input type="text" id="country" formControlName="country" class="form-control" />
+    </div>
+
+    <!-- Zip Code Field -->
+    <div class="form-group">
+      <label for="zipCode">Zip Code</label>
+      <input type="text" id="zipCode" formControlName="zipCode" class="form-control" />
+    </div>
+
+    <!-- Date of Birth Field -->
+    <div class="form-group">
+      <label for="dob">Date of Birth</label>
+      <input type="date" id="dob" formControlName="dob" class="form-control" />
+      <div *ngIf="isSubmitted || registrationForm.get('dob')?.touched" class="error-message">
+        <div *ngIf="registrationForm.get('dob')?.errors?.['required']">
+          Date of Birth is required.
+        </div>
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary" [disabled]="!registrationForm.valid">Register</button>
+  </form>
+</div>

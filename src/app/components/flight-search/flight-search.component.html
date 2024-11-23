@@ -1,0 +1,95 @@
+<div class="flight-search-container container">
+    <h2 class="text-center my-4">Search Available Flights</h2>
+  
+    <!-- Search Form -->
+    <form (ngSubmit)="searchFlights()" class="mb-4">
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <label for="source" class="form-label">Source:</label>
+          <input
+            type="text"
+            id="source"
+            [(ngModel)]="source"
+            name="source"
+            class="form-control"
+            required
+          />
+        </div>
+  
+        <div class="col-md-4 mb-3">
+          <label for="destination" class="form-label">Destination:</label>
+          <input
+            type="text"
+            id="destination"
+            [(ngModel)]="destination"
+            name="destination"
+            class="form-control"
+            required
+          />
+        </div>
+  
+        <div class="col-md-4 mb-3">
+          <label for="date" class="form-label">Date:</label>
+          <input
+            type="date"
+            id="date"
+            [(ngModel)]="date"
+            name="date"
+            class="form-control"
+            required
+          />
+        </div>
+      </div>
+  
+      <button type="submit" class="btn btn-primary w-100">Search Flights</button>
+    </form>
+  
+    <!-- Available Flights -->
+    <div *ngIf="flights.length > 0">
+      <h3>Available Flights</h3>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Carrier Name</th>
+            <th>Origin</th>
+            <th>Destination</th>
+            <th>Date</th>
+            <th>Air Fare</th>
+            <th>Seats Available</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let flight of flights">
+            <td>{{ flight.carrierName }}</td>
+            <td>{{ flight.origin }}</td>
+            <td>{{ flight.destination }}</td>
+            <td>{{ flight.dateOfJourney }}</td>
+            <td>{{ flight.airFare }}</td>
+            <td>{{ flight.seatCapacityEconomyClass }}</td>
+            <td>
+              <button
+                class="btn btn-success"
+                [routerLink]="'/book-flight'"
+                [queryParams]="{
+                  flightId: flight.flightID,
+                  origin: flight.origin,
+                  destination: flight.destination,
+                  dateOfJourney: flight.dateOfJourney,
+                  carrierName: flight.carrierName
+                }"
+              >
+                Book Flight
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- No Flights Found -->
+    <div *ngIf="flights.length === 0 && searchAttempted" class="alert alert-warning">
+      <p>No flights found for the selected criteria. Please try again!</p>
+    </div>
+  </div>
+  

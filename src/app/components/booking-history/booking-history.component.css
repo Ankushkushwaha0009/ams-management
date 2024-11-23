@@ -1,0 +1,94 @@
+/* Booking History Container */
+.booking-history-container {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .booking-history-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #e3dddd;
+    margin-bottom: 20px;
+  }
+  
+  /* No Bookings Message */
+  .no-bookings-message {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #888;
+    margin-top: 50px;
+  }
+  
+  /* Booking History Table */
+  .booking-history-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #1e1c1c;
+  }
+  
+  .booking-history-table th, 
+  .booking-history-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #a79696;
+  }
+  
+  /* Header Styling */
+  .booking-history-table th {
+    background-color: #4CAF50;
+    color: rgb(236, 228, 228);
+    font-size: 1.1rem;
+  }
+  
+  .booking-history-table td {
+    color: #555;
+    font-size: 1rem;
+  }
+  
+  /* Hover effect on rows */
+  .booking-history-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Row Styling */
+  .booking-row:nth-child(odd) {
+    background-color: #f9f9f9;
+  }
+  
+  .booking-row:nth-child(even) {
+    background-color: #f4f4f4;
+  }
+  
+  /* Currency Format Styling */
+  .booking-history-table td:last-child {
+    text-align: right;
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    .booking-history-table th, 
+    .booking-history-table td {
+      padding: 10px 12px;
+      font-size: 0.9rem;
+    }
+  
+    .booking-history-container {
+      width: 100%;
+      padding: 10px;
+    }
+  
+    .booking-history-title {
+      font-size: 1.5rem;
+    }
+  
+    .no-bookings-message {
+      font-size: 1rem;
+    }
+  }
+  
+  h2 {
+    color: white ;
+  }
