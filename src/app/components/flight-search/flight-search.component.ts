@@ -7,21 +7,21 @@ import { Flight } from 'src/app/model/flight.model';
   templateUrl: './flight-search.component.html',
   styleUrls: ['./flight-search.component.css'],
 })
+
+
 export class FlightSearchComponent implements OnInit {
+
   source: string = '';
   destination: string = '';
   date: string = '';
   flights: Flight[] = [];
-  searchAttempted: boolean = false; // To track if a search has been made
-
+  searchAttempted: boolean = false; 
   constructor(private flightService: FlightService) {}
 
   ngOnInit(): void {
-    // Optional: Fetch all flights on component load (can be removed)
     this.getAllFlights();
   }
 
-  // Fetch all flights (optional)
   getAllFlights(): void {
     this.flightService.getAllFlights().subscribe(
       (data) => {
@@ -33,9 +33,8 @@ export class FlightSearchComponent implements OnInit {
     );
   }
 
-  // Search flights based on user input
   searchFlights(): void {
-    this.searchAttempted = true; // Set the searchAttempted flag to true
+    this.searchAttempted = true; 
 
     if (!this.source || !this.destination || !this.date) {
       alert('Please fill in all the fields.');
@@ -44,7 +43,7 @@ export class FlightSearchComponent implements OnInit {
 
     this.flightService.getAllFlights().subscribe(
       (data) => {
-        // Filter flights based on the search criteria
+        
         this.flights = data.filter((flight) => {
           const formattedDate = flight.dateOfJourney.substring(0, 10); // Format date to match input
           return (

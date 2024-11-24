@@ -11,12 +11,11 @@ export class BookingService {
 
   constructor(private http: HttpClient) {}
 
-  // Post a booking and get an array of bookings as a response
+  
   createBooking(booking: Booking): Observable<Booking[]> {
     return this.http.post<Booking[]>(`${this.apiUrl}`, booking);
   }
 
-  // Fetch all bookings
   getAllBookings(): Observable<Booking[]> {
     return this.http.get<Booking[]>(this.apiUrl);
   }

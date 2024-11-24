@@ -42,45 +42,38 @@ export class RegistrationComponent implements OnInit {
   }
 
   async onSubmit(): Promise<void> {
-    this.isSubmitted = true;
-
-    if (this.registrationForm.invalid) {
-      return;
-    }
-
-    // Create a Customer object from the form values
-    const customerData = new Customer(
-      undefined,
-      this.form['userName'].value,
-      this.form['password'].value,  // Use the password directly without hashing
-      this.form['role'].value,
-      this.form['customerCategory'].value,
-      this.form['phone'].value,
-      this.form['emailId'].value,
-      this.form['address1'].value,
-      this.form['address2'].value,
-      this.form['city'].value,
-      this.form['state'].value,
-      this.form['country'].value,
-      this.form['zipCode'].value,
-      this.form['dob'].value
-    );
-
-    // Ensure password is a string before sending
-    if (!customerData.password) {
-      console.error('Password is required');
-      return; // You can also show an error to the user here
-    }
-
-    // Call the registration service with the raw password
-    this.registrationService.registerCustomer(customerData).subscribe(
-      (response) => {
-        console.log('Customer registered successfully', response);
-        this.router.navigate(['/customer-login']);
-      },
-      (error) => {
-        console.error('Error registering customer', error);
+      this.isSubmitted = true;
+      if (this.registrationForm.invalid) {
+        return;
       }
-    );
+      const customerData = new Customer(
+        undefined,
+        this.form['userName'].value,
+        this.form['password'].value,
+        this.form['role'].value,
+        this.form['customerCategory'].value,
+        this.form['phone'].value,
+        this.form['emailId'].value,
+        this.form['address1'].value,
+        this.form['address2'].value,
+        this.form['city'].value,
+        this.form['state'].value,
+        this.form['country'].value,
+        this.form['zipCode'].value,
+        this.form['dob'].value
+      );
+      if (!customerData.password) {
+        console.error('Password is required');
+        return; 
+      }
+      this.registrationService.registerCustomer(customerData).subscribe(
+        (response) => {
+          console.log('Customer registered successfully', response);
+          this.router.navigate(['/customer-login']);
+        },
+        (error) => {
+          console.error('Error registering customer', error);
+        }
+      );
   }
 }
